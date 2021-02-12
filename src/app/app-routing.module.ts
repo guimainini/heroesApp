@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then(m =>m.HeroesModule)
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule )
   },
   {
     path: '404',
@@ -18,13 +18,13 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: ErrorPageComponent
+    // component: ErrorPageComponent
+    redirectTo: '404'
   }
 ]
 
 
 @NgModule({
-  
   imports: [
     RouterModule.forRoot( routes )
   ],
@@ -32,4 +32,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutongModule { }
+export class AppRoutingModule { }

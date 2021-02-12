@@ -1,57 +1,32 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-
-import { AddComponent } from './pages/add/add.component';
-import { ListComponent } from './pages/list/list.component';
-import { SearchComponent } from './pages/search/search.component';
-import { HeroComponent } from './pages/hero/hero.component';
+import { AgregarComponent } from './pages/agregar/agregar.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { HeroeComponent } from './pages/heroe/heroe.component';
+import { ListadoComponent } from './pages/listado/listado.component';
 import { HomeComponent } from './pages/home/home.component';
 
-
-
-const routes: Routes = [
+const rutas: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children:[
-      {
-        path:'list',
-        component: ListComponent
-      },
-      {
-        path:'add',
-        component: AddComponent
-      },
-      {
-        path:'edit/:id',
-        component: AddComponent
-      },
-      {
-        path:'search',
-        component: SearchComponent
-      },
-      {
-        path:':id',
-        component: HeroComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'list'
-      }
-      
-
-
-
-
+    children: [
+      { path: 'listado', component: ListadoComponent },
+      { path: 'agregar', component: AgregarComponent },
+      { path: 'editar/:id', component: AgregarComponent },
+      { path: 'buscar', component: BuscarComponent },
+      { path: ':id', component: HeroeComponent },
+      { path: '**', redirectTo: 'listado' }
     ]
   }
 ];
 
+
+
 @NgModule({
-  
   imports: [
-    RouterModule.forChild( routes )
+    RouterModule.forChild( rutas )
   ],
   exports: [
     RouterModule
