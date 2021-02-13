@@ -29,4 +29,10 @@ export class HeroeService {
   
   }
 
+  agregarHeroes ( heroe: Heroe ): Observable<Heroe>{
+    return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe)
+
+
+  }
+
 }
